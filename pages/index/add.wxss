@@ -9,7 +9,9 @@
   margin-top: 40rpx;
 }
 .container {
-  padding: 20rpx;
+  padding: 0 20rpx;
+  background-color: #f4f3f9;
+  height: 100%;
 }
 
 .section__title {
@@ -18,8 +20,54 @@
 }
 
 picker {
-  background-color: whitesmoke;
+  background-color: white;
   padding: 10rpx;
   border-radius: 10rpx;
   line-height: 70rpx;
+}
+
+.item {
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 15rpx;
+  margin-bottom: 20rpx;
+  padding: 15rpx;
+  position: relative;
+  box-shadow: 1px 1px 2px #ccc;
+  height: 200rpx;
+}
+.text-bar {
+  font-size: 24rpx;
+  line-height: 35rpx;
+  color: sienna;
+}
+.info {
+  font-size: 12px;
+  color: #666;
+}
+
+.item .button {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  height: 60rpx;
+  font-size: 14px;
+  line-height: 60rpx;
+  width: 160rpx;
+}
+
+.time-box {
+  display: flex;
+  align-items: center;
+  width: 500rpx;
+  justify-content: space-between;
+  font-size: 48rpx;
+  height: 135rpx;
+  font-weight: bold;
+  color: slateblue;
+}
+
+.line {
+  width: 100px;
+  height: 60px;
 }

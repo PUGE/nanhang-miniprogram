@@ -5,7 +5,6 @@ const app = getApp()
 Page({
   data: {
     checkList: [],
-    loading: true,
     openID: ''
   },
   // 停止监控

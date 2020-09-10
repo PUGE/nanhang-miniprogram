@@ -1,22 +1,45 @@
 <!--add.wxml-->
-<view class="container">
-  <view class="section">
-    <view class="section__title">出发日期:</view>
-    <picker mode="date" value="{{date}}" start="2020-09-10" end="2021-1-31" bindchange="bindDateChange">
-      <view class="picker">{{date}}</view>
-    </picker>
+<!-- 加载动画 -->
+<view class="loading" wx:if="{{loading}}">
+  <image src="../res/loading.svg"></image>
+</view>
+<view class="container" wx:elif="{{flightList.length > 0}}">
+  <view class="flight" >
+    <view class="item" wx:for="{{flightList}}" wx:key="flight">
+      <view class="info">航班号: {{item.flightNo}} | 机型 {{item.plane}} | 飞行时间 {{item.timeDuringFlight}}</view>
+      <view class="time-box">
+        <view>{{item.depTimeStr}}</view>
+        <image class="line" src="../res/line.svg"></image>
+        <view >{{item.arrTimeStr}}</view>
+      </view>
+      
+      <view class="text-bar">快乐飞剩余: {{item.happyNum}}</view>
+      <view class="button" wx:if="{{item.happyNum == 0}}" bindtap="jiankong" id="{{item.flightNo}}">监控航班</view>
+    </view>
   </view>
-  <view class="section">
-    <view class="section__title">出发机场</view>
-    <picker bindchange="bindPickerChange" value="{{index}}" range-key="0" range="{{plant}}">
-      <view class="picker">{{plant[index][0]}}</view>
-    </picker>
+</view>
+
+<view class="container" wx:else>
+  <view class="search" >
+    <view class="section">
+      <view class="section__title">出发日期:</view>
+      <picker mode="date" value="{{date}}" start="2020-09-10" end="2021-1-31" bindchange="bindDateChange">
+        <view class="picker">{{date}}</view>
+      </picker>
+    </view>
+    <view class="section">
+      <view class="section__title">出发机场</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range-key="0" range="{{plant}}">
+        <view class="picker">{{plant[index][0]}}</view>
+      </picker>
+    </view>
+    <view class="section">
+      <view class="section__title">到达机场</view>
+      <picker bindchange="bindPickerChange2" value="{{index2}}" range-key="0" range="{{plant}}">
+        <view class="picker">{{plant[index2][0]}}</view>
+      </picker>
+    </view>
+    <view class="button" bindtap="search">搜索航班</view>
   </view>
-  <view class="section">
-    <view class="section__title">到达机场</view>
-    <picker bindchange="bindPickerChange2" value="{{index2}}" range-key="0" range="{{plant}}">
-      <view class="picker">{{plant[index2][0]}}</view>
-    </picker>
-  </view>
-  <view class="button">搜索航班</view>
+  
 </view>

@@ -6,103 +6,63 @@ Page({
     date: '2020-09-21',
     index: 2,
     index2: 0,
+    loading: false,
     plant: [
       ["广州白云国际机场", "Guangzhou Baiyun International Airport", "CAN", "GuangZhouBaiYunGuoJiJiChang", "广州白云", "Guangzhou Baiyun", "GZBYGJJC"],
       ["北京首都国际机场", "Beijing Capital International Airport", "PEK", "BeijingShouDuGuoJiJiChang", "北京首都", "Beijing Capital", "BJSDGJJC"],
       ["北京大兴国际机场", "Beijing Daxing International Airport", "PKX", "beijngdaxingguojijichang", "北京大兴", "Beijing Daxing", "BJDXGJJC"],
       ["深圳宝安国际机场", "Shenzhen Baoan International Airport", "SZX", "ShenZhenBaoAnGuoJiJiChang", "深圳宝安", "Shenzhen Baoan", "SZBAGJJC"],
-      ["阿尔山伊尔施机场", "Arxa Yiershi Airport", "YIE", "AErShanYiErShiJiChang", "阿尔山伊尔施", "Arxa Yiershi", "AESYESJC"],
-      ["安康五里铺机场", "Ankang Wulipu Airport", "AKA", "AnkangWuLiPuJiChang", "安康五里铺", "Ankang Wulipu", "AKWLPJC"],
       ["阿克苏机场", "Aksu Airport", "AKU", "AKeSuJiChang", "阿克苏", "Aksu", "AKSJC"],
-      ["阿里昆莎机场", "Ngari gunsa Airport", "NGQ", "ALiKunShaJiChang", "阿里昆莎", "Ngari gunsa", "ALKSJC"],
-      ["阿拉善右旗巴丹吉林机场", "Alashanyouqi Jilin Airport", "RHT", "ALaShanYouqiJiLinJiChang", "阿拉善右旗巴丹吉林", "Alashanyouqi Jilin", "ALSYQJLJC"],
-      ["阿拉善左旗巴彦浩特机场", "Alashanzuoqi Bayan Haot Airport", "AXF", "ALaShanZuoqiBaYanHaoTeJiChang", "阿拉善左旗巴彦浩特", "Alashanzuoqi Bayan Haot", "ALSZQBYHTJC"],
       ["阿勒泰机场", "Altay Airport", "AAT", "ALeTaiJiChang", "阿勒泰", "Altay", "ALTJC"],
       ["安庆天柱山机场", "Anqing Tianzhushan Airport", "AQG", "AnQingTianZhuShanJiChang", "安庆天柱山", "Anqing Tianzhushan", "AQTZSJC"],
       ["鞍山腾鳌机场", "Anshan Airport", "AOG", "AnShanTengAoJiChang", "鞍山腾鳌", "Anshan", "ASTAJC"],
-      ["安顺黄果树机场", "Anshun Huangguoshu Airport", "AVA", "AnShunHuangGuoShuJiChang", "安顺黄果树", "Anshun Huangguoshu", "ASHGSJC"],
       ["琼海博鳌国际机场", "Qionghai Boao International Airport", "BAR", "QiongHaiBoAoGuoJiJiChang", "琼海博鳌", "QionghaiBoao", "QHBAGJJC"],
       ["北海福成机场", "Beihai Fucheng Airport", "BHY", "BeiHaiFuChengJiChang", "北海福成", "Beihai Fucheng", "BHFCJC"],
       ["毕节飞雄机场", "Bijie Feixiong Airport", "BFJ", "BiJieFeiXiongJiChang", "毕节飞雄", "Bijie Feixiong", "BJFXJC"],
       ["博乐阿拉山口机场", "Bole Alashankou Airport", "BPL", "BoLeALaShanKouJiChang", "博乐阿拉山口", "Bole Alashankou", "BLALSKJC"],
-      ["百色巴马机场", "Baise Bama Airport", "AEB", "BaiSeBaMaJiChang", "百色巴马", "Baise Bama", "BSBMJC"],
-      ["保山机场", "Baoshan Airport", "BSD", "BaoShanJiChang", "保山", "Baoshan", "BSJC"],
       ["包头二里半机场", "Baotou Erliban Airport", "BAV", "BaoTouErLiBanJiChang", "包头二里半", "Baotou Erliban", "BTELBJC"],
-      ["昌都邦达机场", "Changdu bangda Airport", "BPX", "ChangDuBangDaJiChang", "昌都邦达", "Changdu bangda", "CDBDJC"],
       ["常德桃花源机场", "Changde Taohuayuan Airport", "CGD", "ChangDeTaoHuaYuanJiChang", "常德桃花源", "Changde Taohuayuan", "CDTHYJC"],
       ["成都双流国际机场", "Chengdu Shuangliu International Airport", "CTU", "ChengDuShuangLiuGuoJiJiChang", "成都双流", "Chengdu Shuangliu", "CDSLGJJC"],
-      ["赤峰玉龙机场", "Chifeng Yulong Airport", "CIF", "ChiFengYuLongJiChang", "赤峰玉龙", "Chifeng Yulong", "CFYLJC"],
-      ["朝阳机场", "Chaoyang Airport", "CHG", "ChaoYangJiChang", "朝阳", "Chaoyang", "CYJC"],
-      ["沧源佤山机场", "Cangyuan Washan Airport", "CWJ", "CangYuanWaShanJiChang", "沧源佤山", "Cangyuan Washan", "CYWSJC"],
       ["常州奔牛国际机场", "Changzhou Benniu International Airport", "CZX", "ChangZhouBenNiuGuoJiJiChang", "常州奔牛", "Changzhou Benniu", "CZBNGJJC"],
       ["池州九华山机场", "Chizhou Jiuhuashan Airport", "JUH", "ChiZhouJiuHuaShanJiChang", "池州九华山", "Chizhou Jiuhuashan", "CZJHSJC"],
-      ["梁平机场", "Liangping Airport", "LIA", "LiangPingJiChang", "梁平", "Liangping", "LPJC"],
       ["稻城亚丁机场", "Daocheng Yading Airport", "DCY", "DaoChengYaDingJiChang", "稻城亚丁", "Daocheng Yading", "DCYDJC"],
       ["丹东浪头国际机场", "Dandong Langtou International Airport", "DDG", "DanDongLangTouGuojiJiChang", "丹东浪头", "Dandong Langtou", "DDLTGJJC"],
-      ["东莞", "Dongguan", "DDB", "dongguan", "", "", "DG"],
       ["敦煌机场", "Dunhuang Airport", "DNH", "DunHuangJiChang", "敦煌", "Dunhuang", "DHJC"],
       ["大连周水子国际机场", "Dalian Zhoushuizi International Airport", "DLC", "DaLianZhouShuiZiGuoJiJiChang", "大连周水子", "Dalian Zhoushuizi", "DLZSZGJJC"],
       ["大理机场", "Dali Airport", "DLU", "DaLiJiChang", "大理", "Dali", "DLJC"],
-      ["德令哈机场", "Delingha Airport", "HXD", "DeLingHaJiChang", "德令哈", "Delingha", "DLHJC"],
-      ["迪庆香格里拉机场", "DiQing Shangri-La Airport", "DIG", "DiQingXiangGeLiLaJiChang", "迪庆香格里拉", "Diqing Shangri la", "DQXGLLJC"],
       ["大庆萨尔图机场", "DaQing Saertu Airport", "DQA", "DaQingSaErTuJiChang", "大庆萨尔图", "DaQing Saertu", "DQSETJC"],
-      ["大同云冈机场", "Datong Yungang Airport", "DAT", "DatongYunGangJiChang", "大同云冈", "Datong Yungang", "DTYGJC"],
-      ["东营胜利机场", "Dongying Shengli Airport", "DOY", "DongYingShengLiJiChang", "东营胜利", "Dongying Shengli", "DYSLJC"],
-      ["达州河市机场", "Dazhou Heshi Airport", "DAX", "DazhouHeShiJiChang", "达州河市", "Dazhou Heshi", "DZHSJC"],
       ["鄂尔多斯伊金霍洛国际机场", "Erdos Ejin Horo International Airport", "DSN", "EErDuoSiYiJinHuoLuoGuoJiJiChang", "鄂尔多斯", "Erdos Ejin Horo", "EEDSYJHLGJJC"],
-      ["额济纳旗桃来机场", "Taolai Airport", "EJN", "taolaijichang", "额济纳旗桃来", "Taolai", "CLJC"],
-      ["二连浩特赛乌苏国际机场", "Erenhot Saiwusu International Airport", "ERL", "ErLianHaoTeSaiWuSuGuoJiJiChang", "二连浩特赛乌苏", "Erenhot Saiwusu", "ELHTSWSGJJC"],
-      ["恩施许家坪机场", "Enshi Xujiaping Airport", "ENH", "EnShiXujiaPingJiChang", "恩施许家坪", "Enshi Xujiaping", "ESXJPJC"],
       ["阜阳西关机场", "Fuyang Xiguan Airport", "FUG", "FuYangXiGuanJiChang", "阜阳西关", "Fuyang Xiguan", "FYXGJC"],
-      ["抚远东极机场", "Fuyuan Dongji Airport", "FYJ", "FuYuanDongJiJiChang", "抚远东极", "Fuyuan Dongji", "FYDJJC"],
       ["富蕴可可托海机场", "Fuyun Koktokay Airport", "FYN", "FuYunKeKeTuoHaiJiChang", "富蕴可可托海", "Fuyun Koktokay", "FYKKTHJC"],
       ["福州长乐国际机场", "Fuzhou Changle International Airport", "FOC", "FuZhouChangLeGuoJiJiChang", "福州长乐", "Fuzhou Changle", "FZCLGJJC"],
-      ["格尔木机场", "Golmud Airport", "GOQ", "GeErMuJiChang", "格尔木", "Golmud", "GEMJC"],
-      ["广汉机场", "Guanghan Airport", "GHN", "GuangHanJiChang", "广汉", "Guanghan", "GHJC"],
-      ["果洛玛沁机场", "Golog Maqin Airport", "GMQ", "GuoLuoMaXinJiChang", "果洛玛沁", "Golog Maqin", "GLMXJC"],
       ["桂林两江国际机场", "Guilin Liangjiang International Airport", "KWL", "GuiLinLiangJiangGuoJiJiChang", "桂林两江", "Guilin Liangjiang", "GLLJGJJC"],
       ["广元盘龙机场", "Guangyuan Panlong Airport", "GYS", "GuangYuanPanLongJiChang", "广元盘龙", "Guangyuan Panlong", "GYPLJC"],
-      ["固原六盘山机场", "Guyuan Liupanshan Airport", "GYU", "GuYuanLiuPanShanJiChang", "固原六盘山", "Guyuan Liupanshan", "GYLPSJC"],
       ["贵阳龙洞堡国际机场", "Guiyang Longdongbao International Airport", "KWE", "GuiYangLongDongBaoGuoJiJiChang", "贵阳龙洞堡", "Guiyang Longdongbao", "GYLDBGJJC"],
       ["赣州黄金机场", "Ganzhou Huangjin Airport", "KOW", "GanZhouHuangJinJiChang", "赣州黄金", "Ganzhou Huangjin", "GZHJJC"],
       ["淮安涟水机场", "Huaian Lianshui Airport", "HIA", "HuaiAnLianShuiJiChang", "淮安涟水", "Huaian Lianshui", "HALSJC"],
-      ["河池金城江机场", "Hechi Jinchengjiang Airport", "HCJ", "HeChiJinChengJiangJiChang", "河池金城江", "Hechi Jinchengjiang", "HCJCJJC"],
       ["邯郸机场", "Handan Airport", "HDG", "HanDanJiChang", "邯郸", "Handan", "HDJC"],
       ["哈尔滨太平国际机场", "Harbin Taiping International Airport", "HRB", "HaErBinTaiPingGuoJiJiChang", "哈尔滨太平", "Harbin Taiping", "HEBTPGJJC"],
       ["合肥新桥国际机场", "Hefei Xinqiao International Airport", "HFE", "HeFeiXinQiaoGuoJiJiChang", "合肥新桥", "Hefei Xinqiao", "HFXQGJJC"],
       ["黑河瑷珲机场", "Heihe Aihui Airport", "HEK", "HeiHeAiHuiJiChang", "黑河瑷珲", "Heihe Aihui", "HHAHJC"],
-      ["怀化芷江机场", "Huaihua Zhijiang Airport", "HJJ", "HuaiHuaZhiJiangJiChang", "怀化芷江", "Huaihua Zhijiang", "HHZJJC"],
       ["呼和浩特白塔国际机场", "Hohhot Baita International Airport", "HET", "HuHeHaoTeBaiTaGuoJiJiChang", "呼和浩特白塔", "Hohhot Baita", "HHHTBTGJJC"],
       ["海口美兰国际机场", "Haikou Meilan International Airport", "HAK", "HaiKouMeiLanGuoJiJiChang", "海口美兰", "Haikou Meilan", "HKMLGJJC"],
       ["海拉尔东山国际机场", "Hailar Dongshan International Airport", "HLD", "HaiLaErDongShanJiGuoJiChang", "海拉尔东山", "Hailar Dongshan", "HLEDSGJJC"],
       ["哈密机场", "Hami Airport", "HMI", "HaMiJiChang", "哈密", "Hami", "HMJC"],
       ["黄山屯溪国际机场", "Huangshan Tunxi International Airport", "TXN", "HuangShanTunXiGuoJiJiChang", "黄山屯溪", "Huangshan Tunxi", "HSTXGJJC"],
       ["和田机场", "Hotan Airport", "HTN", "HeTianJiChang", "和田", "Hotan", "HTJC"],
-      ["阿坝红原机场", "Aba Hongyuan Airport", "AHJ", "ABaHongYuanJiChang", "阿坝红原", "Aba Hongyuan", "ABHYJC"],
       ["衡阳南岳机场", "Hengyang Nanyue Airport", "HNY", "HengYangNanYueJiChang", "衡阳南岳", "Hengyang Nanyue", "HYNYJC"],
       ["杭州萧山国际机场", "Hangzhou Xiaoshan International Airport", "HGH", "HangZhouXiaoShanGuoJiJiChang", "杭州萧山", "Hangzhou Xiaoshan", "HZXSGJJC"],
       ["惠州平潭机场", "Huizhou Pingtan Airport", "HUZ", "HuiZhouPingTanJiChang", "惠州平潭", "Huizhou Pingtan", "HZPTJC"],
       ["汉中城固机场", "Hanzhong Chenggu Airport", "HZG", "HanZhongChengGuJiChang", "汉中城固", "Hanzhong Chenggu", "HZCGJC"],
-      ["金昌金川机场", "Jinchang Jinchuan Airport", "JIC", "JinChangJinChuanJiChang", "金昌金川", "Jinchang Jinchuan", "JCJCJC"],
-      ["景德镇罗家机场", "Jingdezhen Luojia Airport", "JDZ", "JingDeZhenLuoJiaJiChang", "景德镇罗家", "Jingdezhen Luojia", "JDZLJJC"],
-      ["加格达奇机场", "Jiagedaqi Airport", "JGD", "JiaGeDaQiJiChang", "加格达奇", "Jiagedaqi", "JGDQJC"],
       ["井冈山机场", "Jinggangshan  Airport", "JGS", "JingGangShanJiChang", "井冈山", "Jinggangshan", "JGSJC"],
-      ["九江庐山机场", "Jiujiang Lushan Airport", "JIU", "JiuJiangLuShanJiChang", "九江庐山", "Jiujiang Lushan", "JJLSJC"],
-      ["泉州晋江机场", "Quanzhou Jinjiang Airport", "JJN", "QuanzhouJinJiangJiChang", "泉州晋江", "Quanzhou Jinjiang", "QZJJJC"],
-      ["江门", "Jiangmen", "JBD", "jiangmen", "", "", "JM"],
       ["佳木斯东郊机场", "Jiamusi Dongjiao Airport", "JMU", "JiaMuSiDongJiaoJiChang", "佳木斯东郊", "Jiamusi Dongjiao", "JMSDJJC"],
       ["济宁曲阜机场", "Jining Qufu Airport", "JNG", "JiNingQuFuJiChang", "济宁曲阜", "Jining Qufu", "JNQFJC"],
       ["济南遥墙国际机场", "Jinan Yaoqiang International Airport", "TNA", "JiNanYaoQiangGuoJiJiChang", "济南遥墙", "Jinan Yaoqiang", "JNYQGJJC"],
       ["鸡西兴凯湖机场", "Jixi Xingkaihu Airport", "JXA", "JiXiXingKaiHuJiChang", "鸡西兴凯湖", "Jixi Xingkaihu", "JXXKHJC"],
       ["揭阳潮汕国际机场", "Jieyang Chaoshan International Airport", "SWA", "JieYangChaoShanGuoJiJiChang", "揭阳潮汕", "Jieyang Chaoshan", "JYCSGJJC"],
       ["嘉峪关机场", "Jiayuguan Airport", "JGN", "JiaYuGuanJiChang", "嘉峪关", "Jiayuguan", "JYGJC"],
-      ["锦州锦州湾机场", "JinzhouJinzhouwanAirport", "JNZ", "JinzhouJinzhouwan Jichang", "锦州锦州湾", "jinzhouJinzhouwanAirport", "JZJZWGJJC"],
-      ["荆州沙市机场", "Jingzhou Shashi Airport", "SHS", "JingZhouShaShiJiChang", "荆州沙市", "Jingzhou Shashi", "JZSSJC"],
-      ["九寨黄龙机场", "Jiuzhai Huanglong Airport", "JZH", "JiuZhaiHuangLongJiChang", "九寨黄龙", "JiuzhaiHuanglong", "JZHLJC"],
       ["库车龟兹机场", "Kuqa Qiuci Airport", "KCA", "KuCheGuiZiJiChang", "库车龟兹", "Kuqa Qiuci", "KCGZJC"],
-      ["康定机场", "Kangding Airport", "KGT", "KangDingJiChang", "康定", "Kangding", "KDJC"],
       ["库尔勒机场", "Korla Airport", "KRL", "KuErLeJiChang", "库尔勒", "Korla", "KELJC"],
-      ["凯里黄平机场", "Kaili Huangping Airport", "KJH", "KailiHuangPingJiChang", "凯里黄平", "Kaili Huangping", "KLHPJC"],
       ["克拉玛依机场", "Karamay Airport", "KRY", "KeLaMaYiJiChang", "克拉玛依", "Karamay", "KLMYJC"],
       ["昆明长水国际机场", "Kunming Changshui International Airport", "KMG", "KunMingChangShuiGuoJiJiChang", "昆明长水", "Kunming Changshui", "KMCSGJJC"],
       ["喀纳斯机场", "Kanas Airport", "KJI", "KaNaSiJiChang", "喀纳斯", "Kanas", "KNSJC"],
@@ -111,11 +71,12 @@ Page({
       ["澜沧景迈机场", "LanCang JingMai Airport", "JMJ", "lancangjingmaijichang", "澜沧景迈", "LanCang JingMai", "LCJMJC"],
       ["临沧机场", "Lincang Airport", "LNJ", "LinCangJiChang", "临沧", "Lincang", "LCJC"],
       ["临汾乔李机场", "Linfen Qiaoli Airport", "LFQ", "LinFenQiaoLiJiChang", "临汾乔李", "Linfen Qiaoli", "LFQLJC"],
-      ["宁蒗泸沽湖机场", "Ninglang Luguhu Airport", "NLH", "NinglangLuGuHuJiChang", "宁蒗泸沽湖", "Ninglang Luguhu", "NLLGHJC"],
       ["丽江三义机场", "Lijiang Sanyi Airport", "LJG", "LiJiangSanYiJiChang", "丽江三义", "Lijiang Sanyi", "LJSYJC"],
-      ["吕梁大武机场", "Lvliang Dawu Airport", "LLV", "Lvliang Dawu JiChang", "吕梁大武", "LvliangDawu", "LLDWJC"],
       ["陇南成县机场", "Longnan Chengxian Airport", "LNL", "longnanchengxianjichang", "陇南成县", "Longnan Chengxian", "LNCXJC"],
-      ["黎平机场", "Liping Airport", "HZH", "LiPingJiChang", "黎平", "Liping", "LPJC"],
+
+
+
+      
       ["六盘水月照机场", "Liupanshui Yuezhao Airport", "LPF", "LiuPanShuiYueZhaoJiChang", "六盘水月照", "Liupanshui Yuezhao", "LPSYZJC"],
       ["拉萨贡嘎国际机场", "Lhasa Gonggar International Airport", "LXA", "LaSaGongGaGuoJiJiChang", "拉萨贡嘎", "Lhasa Gonggar", "LSGGGJJC"],
       ["龙岩连城冠豸山机场", "Longyan Liancheng Guanzhishan Airport", "LCX", "LongYanLianChengGuanZhiShanJiChang", "龙岩连城冠豸山", "Longyan Liancheng Guanzhishan", "LYLCGZSJC"],
@@ -242,9 +203,64 @@ Page({
       ["遵义新舟国际机场", "Zunyi Xinzhou International Airport", "ZYI", "ZunyiXinZhouGuoJiJiChang", "遵义新舟", "Zunyi Xinzhou", "ZYXZGJJC"],
       ["郑州新郑国际机场", "ZhengzhouXinzheng International Airport", "CGO", "ZhengzhouXinZhengGuoJiJiChang", "郑州新郑", "ZhengzhouXinzheng", "ZZXZGJJC"],
       ["长治王村机场", "Changzhi Wangcun Airport", "CIH", "ChangZhiWangcunJiChang", "长治王村", "Changzhi Wangcun", "CZWCJC"]
-    ]
+    ],
+    flightList: []
   },
   onLoad: function () {
+  },
+  // search停止监控
+  search: function(event) {
+    this.setData({
+      loading: true
+    })
+    const flightDate = this.data.date.replace(/-/g, '')
+    wx.request({
+      url: 'https://going.run/weixin',
+      data: {
+        type: 'search',
+        flightDate: flightDate,
+        depCity: this.data.plant[this.data.index][2],
+        arrCity: this.data.plant[this.data.index2][2]
+      },
+      success: (res) => {
+        this.setData({
+          flightList: res.data,
+          loading: false
+        })
+      },
+      fail: (res) => {
+        console.log(res)
+      }
+    })
+  },
+   // 监控
+   jiankong: function(event) {
+    const flightDate = this.data.date.replace(/-/g, '')
+    console.log(event.currentTarget)
+    wx.request({
+      url: 'https://going.run/weixin',
+      data: {
+        type: 'add',
+        flightDate: flightDate,
+        flightNo: event.currentTarget.id,
+        depCity: this.data.plant[this.data.index][2],
+        arrCity: this.data.plant[this.data.index2][2],
+        depCityName: this.data.plant[this.data.index][0],
+        arrCityName: this.data.plant[this.data.index2][0]
+      },
+      success: (res) => {
+        if (res.data.err === 0) {
+          wx.showToast({
+            title: '添加成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+      },
+      fail: (res) => {
+        console.log(res)
+      }
+    })
   },
   bindDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)

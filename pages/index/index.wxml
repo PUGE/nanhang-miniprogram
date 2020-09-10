@@ -1,5 +1,7 @@
 <!--index.wxml-->
-<view class="container">
+<!-- 加载动画 -->
+
+<view class="container" wx:if="{{openID}}">
   <text class="title">我的监控</text>
   <view class="item" wx:for="{{checkList}}" wx:key="check">
     <view>出发日期: {{item.flightDate}}</view>
@@ -14,4 +16,7 @@
     </view>
   </view>
   <view class="add" bindtap="add">+添加新快乐飞监控</view>
+</view>
+<view class="loading" wx:else>
+  <image src="../res/loading.svg"></image>
 </view>
