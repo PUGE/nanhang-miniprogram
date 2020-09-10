@@ -1,0 +1,22 @@
+<!--add.wxml-->
+<view class="container">
+  <view class="section">
+    <view class="section__title">出发日期:</view>
+    <picker mode="date" value="{{date}}" start="2020-09-10" end="2021-1-31" bindchange="bindDateChange">
+      <view class="picker">{{date}}</view>
+    </picker>
+  </view>
+  <view class="section">
+    <view class="section__title">出发机场</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range-key="0" range="{{plant}}">
+      <view class="picker">{{plant[index][0]}}</view>
+    </picker>
+  </view>
+  <view class="section">
+    <view class="section__title">到达机场</view>
+    <picker bindchange="bindPickerChange2" value="{{index2}}" range-key="0" range="{{plant}}">
+      <view class="picker">{{plant[index2][0]}}</view>
+    </picker>
+  </view>
+  <view class="button">搜索航班</view>
+</view>
