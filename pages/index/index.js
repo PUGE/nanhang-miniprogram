@@ -9,23 +9,37 @@ Page({
   },
   // 停止监控
   stop: function(event) {
-    wx.request({
-      url: 'https://going.run/weixin',
-      data: {
-        type: 'finish',
-        id: event.currentTarget.id
-      },
-      success: (res) => {
-        const data = JSON.parse(res.data)
-        console.log(data)
-        this.setData({
-          checkList: data
-        })
-      },
-      fail: (res) => {
-        console.log(res)
+    wx.showModal({
+      title: '停止监控',
+      content: '确定要停止',
+      success (res) {
+        if (res.confirm) {
+          wx.request({
+            url: 'https://going.run/weixin',
+            data: {
+              type: 'finish',
+              id: event.currentTarget.id
+            },
+            success: (res) => {
+              const data = JSON.parse(res.data)
+              console.log(data)
+              this.setData({
+                checkList: data
+              })
+              wx.showToast({
+                title: '监控已停止',
+                icon: 'success',
+                duration: 2000
+              })
+            },
+            fail: (res) => {
+              console.log(res)
+            }
+          })
+        }
       }
     })
+    
   },
   add: function (event) {
     wx.navigateTo({

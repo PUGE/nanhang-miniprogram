@@ -9,6 +9,10 @@
     <view>到达机场: {{item.arrCityName}}</view>
     <view>监控航班: {{item.flightNo == '*' ? '全部航班' : item.flightNo}}</view>
     <view class="bottom-bar">
+      <view class="state">
+        <view class="state-icon"></view>
+        <text>已监控{{item.num}}次</text>
+      </view>
       <view class="button" bindtap="stop" id="{{item.id}}">
         <image src="../res/stop.svg"></image>
         <text>停止监控</text>
