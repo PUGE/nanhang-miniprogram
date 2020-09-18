@@ -1,0 +1,82 @@
+/* pages/index/search.wxss */
+.container {
+  padding: 0 20rpx;
+  background-color: #f4f3f9;
+  height: 100%;
+}
+.item {
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 15rpx;
+  margin-bottom: 20rpx;
+  padding: 15rpx;
+  position: relative;
+  box-shadow: 1px 1px 2px #ccc;
+  height: 200rpx;
+}
+.text-bar {
+  font-size: 24rpx;
+  line-height: 35rpx;
+  color: sienna;
+}
+.info {
+  font-size: 12px;
+  color: #666;
+}
+.button {
+  background-color: #009fe9;
+  color: white;
+  text-align: center;
+  line-height: 100rpx;
+  bottom: 0;
+  margin: 0 auto;
+  border-radius: 15rpx;
+  margin-top: 40rpx;
+}
+
+.item .button {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  height: 60rpx;
+  font-size: 14px;
+  line-height: 60rpx;
+  width: 160rpx;
+}
+
+.time-box {
+  display: flex;
+  align-items: center;
+  width: 500rpx;
+  justify-content: space-between;
+  font-size: 48rpx;
+  height: 135rpx;
+  font-weight: bold;
+  color: slateblue;
+}
+
+.line {
+  width: 100px;
+  height: 60px;
+}
+.title {
+  text-align: center;
+  color: #333;
+  font-size: 18px;
+  display: block;
+  line-height: 50px;
+  font-weight: bold;
+}
+
+.add {
+  text-align: center;
+  width: 90%;
+  border-radius: 15rpx;
+  padding: 15rpx;
+  background-color: #009fe9;
+  color: white;
+  font-size: 16px;
+  line-height: 60rpx;
+  box-shadow: 1px 1px 2px #ccc;
+  margin: 20rpx auto;
+}

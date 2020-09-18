@@ -58,7 +58,7 @@
   background-color: #009fe9;
   color: white;
   font-size: 16px;
-  line-height: 25px;
+  line-height: 60rpx;
   box-shadow: 1px 1px 2px #ccc;
   margin: 20rpx auto;
 }
@@ -75,4 +75,11 @@
   background-color: green;
   border-radius: 20rpx;
   margin-right: 15rpx;
+}
+
+.no-plant {
+  width: 82vw;
+  height: 103vw;
+  display: block;
+  margin: 45rpx auto;
 }

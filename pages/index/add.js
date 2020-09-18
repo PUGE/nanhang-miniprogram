@@ -206,95 +206,36 @@ Page({
     ],
     flightList: []
   },
-  onLoad: function () {
-  },
+
   // search停止监控
   search: function(event) {
-    this.setData({
-      loading: true
-    })
-    const flightDate = this.data.date.replace(/-/g, '')
-    wx.request({
-      url: 'https://going.run/weixin',
-      data: {
-        type: 'search',
-        flightDate: flightDate,
-        depCity: this.data.plant[this.data.index][2],
-        arrCity: this.data.plant[this.data.index2][2]
-      },
+    wx.navigateTo({
+      url: 'search',
       success: (res) => {
-        this.setData({
-          flightList: res.data,
-          loading: false
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', {
+          flightDate: this.data.date.replace(/-/g, ''),
+          depCity: this.data.plant[this.data.index][2],
+          arrCity: this.data.plant[this.data.index2][2],
+          depCityName: this.data.plant[this.data.index][0],
+          arrCityName: this.data.plant[this.data.index2][0]
         })
-      },
-      fail: (res) => {
-        console.log(res)
-      }
-    })
-  },
-   // 监控
-   jiankong: function(event) {
-    const flightDate = this.data.date.replace(/-/g, '')
-    console.log(event.currentTarget)
-    wx.request({
-      url: 'https://going.run/weixin',
-      data: {
-        type: 'add',
-        flightDate: flightDate,
-        flightNo: event.currentTarget.id,
-        depCity: this.data.plant[this.data.index][2],
-        arrCity: this.data.plant[this.data.index2][2],
-        depCityName: this.data.plant[this.data.index][0],
-        arrCityName: this.data.plant[this.data.index2][0]
-      },
-      success: (res) => {
-        if (res.data.err === 0) {
-          wx.showToast({
-            title: '添加成功',
-            icon: 'success',
-            duration: 2000
-          })
-        }
-      },
-      fail: (res) => {
-        console.log(res)
       }
     })
   },
   bindDateChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       date: e.detail.value
     })
   },
   bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value
     })
   },
   bindPickerChange2: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index2: e.detail.value
     })
-  },
-  subscribe: function (event) {
-    wx.requestSubscribeMessage({
-      tmplIds: ['8mo5DIYVV7lWxmeNufmCFnqGS0eLUsYOVuONb6G1G6M'],
-      success: (res) => {
-        wx.request({
-          url: 'https://going.run/weixin',
-          data: {
-            type: 'dingyue',
-            openid: this.data.openID
-          },
-          success: (res) => {
-          }
-        })
-        console.log(res)
-      }
-    })
-  },
+  }
 })

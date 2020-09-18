@@ -1,0 +1,20 @@
+<!--pages/index/search.wxml-->
+<view class="loading" wx:if="{{loading}}">
+  <image src="../res/loading.svg"></image>
+</view>
+<view class="container" wx:else>
+  <text class="title">航班列表</text>
+  <view class="flight" >
+    <view class="item" wx:for="{{flightList}}" wx:key="flight">
+      <view class="info">航班号: {{item.flightNo}} | 机型 {{item.plane}} | 飞行时间 {{item.timeDuringFlight}}</view>
+      <view class="time-box">
+        <view>{{item.depTimeStr}}</view>
+        <image class="line" src="../res/line.svg"></image>
+        <view >{{item.arrTimeStr}}</view>
+      </view> 
+      <view class="text-bar">快乐飞剩余: {{item.happyNum}}</view>
+      <view class="button" wx:if="{{item.happyNum == 0}}" bindtap="jiankong" id="{{index}}">监控航班</view>
+    </view>
+    <view class="add" bindtap="add" bindtap="jiankong" id="*">监控当日所有航班</view>
+  </view>
+</view>

@@ -3,22 +3,25 @@
 
 <view class="container" wx:if="{{openID}}">
   <text class="title">我的监控</text>
-  <view class="item" wx:for="{{checkList}}" wx:key="check">
-    <view>出发日期: {{item.flightDate}}</view>
-    <view>出发机场: {{item.depCityName}}</view>
-    <view>到达机场: {{item.arrCityName}}</view>
-    <view>监控航班: {{item.flightNo == '*' ? '全部航班' : item.flightNo}}</view>
-    <view class="bottom-bar">
-      <view class="state">
-        <view class="state-icon"></view>
-        <text>已监控{{item.num}}次</text>
-      </view>
-      <view class="button" bindtap="stop" id="{{item.id}}">
-        <image src="../res/stop.svg"></image>
-        <text>停止监控</text>
+  <view class="item-box" wx:if="{{checkList.length > 0}}">
+    <view class="item" wx:for="{{checkList}}" wx:key="check">
+      <view>出发日期: {{item.flightDate}}</view>
+      <view>出发机场: {{item.depCityName}}</view>
+      <view>到达机场: {{item.arrCityName}}</view>
+      <view>监控航班: {{item.flightNo == '*' ? '全部航班' : item.flightNo}}</view>
+      <view class="bottom-bar">
+        <view class="state">
+          <view class="state-icon"></view>
+          <text>已监控{{item.num}}次</text>
+        </view>
+        <view class="button" bindtap="stop" id="{{item.id}}">
+          <image src="../res/stop.svg"></image>
+          <text>停止监控</text>
+        </view>
       </view>
     </view>
   </view>
+  <image wx:else class="no-plant" src="../res/np-plant.png"></image>
   <view class="add" bindtap="add">+添加新快乐飞监控</view>
 </view>
 <view class="loading" wx:else>

@@ -12,7 +12,7 @@ Page({
     wx.showModal({
       title: '停止监控',
       content: '确定要停止',
-      success (res) {
+      success: (res) => {
         if (res.confirm) {
           wx.request({
             url: 'https://going.run/weixin',
@@ -47,6 +47,7 @@ Page({
     })
   },
   onLoad: function () {
+    var app = getApp()
     wx.login({
       success: (res) => {
         if (res.code) {
@@ -67,6 +68,7 @@ Page({
                 openID: data['openID'],
                 checkList: data['value']
               })
+              app.globalData.openid = data['openID']
             },
             fail: (res) => {
               console.log(res)
