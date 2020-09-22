@@ -73,13 +73,8 @@ Page({
       ["临汾乔李机场", "Linfen Qiaoli Airport", "LFQ", "LinFenQiaoLiJiChang", "临汾乔李", "Linfen Qiaoli", "LFQLJC"],
       ["丽江三义机场", "Lijiang Sanyi Airport", "LJG", "LiJiangSanYiJiChang", "丽江三义", "Lijiang Sanyi", "LJSYJC"],
       ["陇南成县机场", "Longnan Chengxian Airport", "LNL", "longnanchengxianjichang", "陇南成县", "Longnan Chengxian", "LNCXJC"],
-
-
-
-      
       ["六盘水月照机场", "Liupanshui Yuezhao Airport", "LPF", "LiuPanShuiYueZhaoJiChang", "六盘水月照", "Liupanshui Yuezhao", "LPSYZJC"],
       ["拉萨贡嘎国际机场", "Lhasa Gonggar International Airport", "LXA", "LaSaGongGaGuoJiJiChang", "拉萨贡嘎", "Lhasa Gonggar", "LSGGGJJC"],
-      ["龙岩连城冠豸山机场", "Longyan Liancheng Guanzhishan Airport", "LCX", "LongYanLianChengGuanZhiShanJiChang", "龙岩连城冠豸山", "Longyan Liancheng Guanzhishan", "LYLCGZSJC"],
       ["洛阳北郊机场", "Luoyang Beijiao Airport", "LYA", "LuoYangBeiJiaoJiChang", "洛阳北郊", "Luoyang Beijiao", "LYBJJC"],
       ["临沂沭埠岭机场", "Linyi Shubuling Airport", "LYI", "LinYiShuBuLingJiChang", "临沂沭埠岭", "Linyi Shubuling", "LYSBLJC"],
       ["连云港白塔埠机场", "Lianyungang Baitabu Airport", "LYG", "LianYunGangBaiTaBuJiChang", "连云港白塔埠", "Lianyungang Baitabu", "LYGBTBJC"],
@@ -92,7 +87,6 @@ Page({
       ["德宏芒市机场", "Dehong Mangshi Airport", "LUM", "dehongmangshijichang", "德宏芒市", "Dehong Mangshi", "DHMSJC"],
       ["绵阳南郊机场", "Mianyang Nanjiao Airport", "MIG", "MianYangNanJiaoJiChang", "绵阳南郊", "Mianyang Nanjiao", "MYNJJC"],
       ["梅州梅县机场", "MeiZhou Meixian Airport", "MXZ", "MeiZhouMeiXianJiChang", "梅州梅县", "Meizhou Meixian", "MZMXJC"],
-      ["满洲里西郊机场", "Manzhouli Xijiao Airport", "NZH", "ManzhouliXiJiaoJiChang", "满洲里西郊", "Manchuria Xijiao", "MZLXJJC"],
       ["宁波栎社国际机场", "Ningbo Lishe International Airport", "NGB", "NingBoLiSheGuoJiJiChang", "宁波栎社", "Ningbo Lishe", "NBLSGJJC"],
       ["南昌昌北国际机场", "Nanchang Changbei International Airport", "KHN", "NanChangChangBeiGuoJiJiChang", "南昌昌北", "Nanchang Changbei", "NCCBGJJC"],
       ["南充高坪机场", "Nanchong Gaoping Airport", "NAO", "NanChongGaoPingJiChang", "南充高坪", "Nanchong Gaoping", "NCGPJC"],
@@ -109,10 +103,12 @@ Page({
       ["黔江武陵山机场", "Qianjiang Wulingshan Airport", "JIQ", "QianJiangWuLingShanJiChang", "黔江武陵山", "Qianjiang Wulingshan", "QJWLSJC"],
       ["且末机场", "Qiemo Airport", "IQM", "QieMoJiChang", "且末", "Qiemo", "QMJC"],
       ["齐齐哈尔三家子机场", "Qiqihar Sanjiazi Airport", "NDG", "QiQiHaErSanJiaZiJiChang", "齐齐哈尔三家子", "Tsitsihar Sanjiazi", "QQHESJZJC"],
-      ["庆阳机场", "Qingyang Airport", "IQN", "QingYangJiChang", "庆阳", "Qingyang", "QYJC"],
-      ["日喀则和平机场", "Shigatse Peace Airport", "RKZ", "RiKaZeHePingJiChang", "日喀则和平", "Shigatse Peace", "RKZHPJC"],
       ["若羌楼兰机场", "Ruoqiang Loulan Airport", "RQA", "ruoqiangloulanjichang", "若羌楼兰", "Ruoqiang Loulan", "RQLLJC"],
       ["日照山字河机场", "Rizhao Shanzihe Airport", "RIZ", "RiZhaoShanZiHeJiChang", "日照山字河", "Rizhao Shanzihe", "RZSZHJC"],
+
+
+
+
       ["莎车机场", "Shache Airport", "QSZ", "shachejichang", "莎车", "Shache", "SCHC"],
       ["上海虹桥国际机场", "Shanghai Hongqiao International Airport", "SHA", "ShangHaiHongQiaoGuoJiJiChang", "上海虹桥", "Shanghai Hongqiao", "SHHQGJJC"],
       ["上海浦东国际机场", "Shanghai Pudong International Airport", "PVG", "ShangHaiPuDongGuoJiJiChang", "上海浦东", "Shanghai Pudong", "SHPDGJJC"],

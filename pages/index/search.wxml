@@ -14,7 +14,11 @@
       </view> 
       <view class="text-bar">快乐飞剩余: {{item.happyNum}}</view>
       <view class="button" wx:if="{{item.happyNum == 0}}" bindtap="jiankong" id="{{index}}">监控航班</view>
+      <image wx:else class="have-tic" src="../res/haveTic.svg"></image>
     </view>
     <view class="add" bindtap="add" bindtap="jiankong" id="*">监控当日所有航班</view>
+    <view class="info-text">提示:</view>
+    <view class="info-text">程序会在08:00-00:00时间段内每分钟检测一次余票.</view>
+    <view class="info-text">如需帮助或问题可发邮件至mail@puge.org.</view>
   </view>
 </view>

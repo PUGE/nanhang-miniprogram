@@ -76,6 +76,9 @@ Page({
                 icon: 'success',
                 duration: 2000
               })
+              wx.redirectTo({
+                url: 'index'　　// 页面 A
+              })
             }
           },
           fail: (res) => {

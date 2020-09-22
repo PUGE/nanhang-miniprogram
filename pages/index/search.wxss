@@ -80,3 +80,16 @@
   box-shadow: 1px 1px 2px #ccc;
   margin: 20rpx auto;
 }
+
+.info-text {
+  color: #999;
+  font-size: 12px;
+}
+
+.have-tic {
+  position: absolute;
+  width: 70rpx;
+  right: 10rpx;
+  top: 10rpx;
+  height: 70rpx;
+}
