@@ -50,7 +50,7 @@ Page({
     var app = getApp()
     // 订阅消息
     wx.requestSubscribeMessage({
-      tmplIds: ['Fk0bFqqG8g7pYUh3FBWio6RRRjQGlBYuMPrz5I1uSjk', '8mo5DIYVV7lWxmeNufmCFnqGS0eLUsYOVuONb6G1G6M'],
+      tmplIds: ['Fk0bFqqG8g7pYUh3FBWio6RRRjQGlBYuMPrz5I1uSjk', 'XOGLi_2DSbmJd4pp442pl4HwhdRpVbspo7ucEhHv0Eg'],
       success: (res) => {
         let activeItem = {"flightNo": "*", "depTime": '0000'}
         if (event.currentTarget.id != '*') {

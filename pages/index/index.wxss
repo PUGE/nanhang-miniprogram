@@ -14,7 +14,17 @@
   padding: 15rpx;
   margin-bottom: 20rpx;
   box-shadow: 1px 1px 2px #ccc;
+  position: relative;
 }
+
+.item .end {
+  position: absolute;
+  width: 120rpx;
+  height: 100rpx;
+  right: 0;
+  top: 5rpx;
+}
+
 .item view {
   line-height: 30px;
 }

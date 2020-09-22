@@ -3,7 +3,7 @@ const util = require('../../utils/util.js')
 
 Page({
   data: {
-    date: '2020-09-21',
+    date: '2020-11-21',
     index: 2,
     index2: 0,
     loading: false,
