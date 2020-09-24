@@ -4,8 +4,8 @@
 <view class="container" wx:if="{{openID}}">
   <text class="title">我的监控</text>
   <view class="item-box" wx:if="{{checkList.length > 0}}">
-    <view class="item" wx:for="{{checkList}}" wx:key="check">
-      <view class="active" wx:if="{{item.finish == 0}}">
+    <view wx:for="{{checkList}}" wx:key="check">
+      <view class="active item" wx:if="{{item.finish == 0}}">
         <view>出发日期: {{item.flightDate}}</view>
         <view>出发机场: {{item.depCityName}}</view>
         <view>到达机场: {{item.arrCityName}}</view>
@@ -21,7 +21,7 @@
           </view>
         </view>
       </view>
-      <view class="finish" wx:else>
+      <view class="finish item" wx:elif="{{showHisVal}}">
         <view>出发日期: {{item.flightDate}}</view>
         <view>出发机场: {{item.depCityName}}</view>
         <view>到达机场: {{item.arrCityName}}</view>
@@ -38,6 +38,7 @@
   </view>
   <image wx:else class="no-plant" src="../res/np-plant.png"></image>
   <view class="add" bindtap="add">+添加新快乐飞监控</view>
+  <view class="add" style="background-color: darkorange;" wx:if="{{checkList.length > 0}}" bindtap="showHis">{{showHisVal ? '隐藏历史监控' : '显示历史监控'}}</view>
 </view>
 <view class="loading" wx:else>
   <image src="../res/loading.svg"></image>

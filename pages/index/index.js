@@ -5,7 +5,8 @@ const app = getApp()
 Page({
   data: {
     checkList: [],
-    openID: ''
+    openID: '',
+    showHisVal: false
   },
   // 停止监控
   stop: function(event) {
@@ -43,7 +44,7 @@ Page({
   },
   add: function (event) {
     wx.navigateTo({
-      url: 'add'　　// 页面 A
+      url: 'add'　
     })
   },
   onLoad: function () {
@@ -78,6 +79,11 @@ Page({
           console.log('登录失败！' + res.errMsg)
         }
       }
+    })
+  },
+  showHis: function () {
+    this.setData({
+      showHisVal: !this.data.showHisVal
     })
   }
 })
