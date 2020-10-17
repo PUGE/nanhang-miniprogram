@@ -93,3 +93,9 @@
   display: block;
   margin: 45rpx auto;
 }
+
+.search {
+  width: 25px;
+  height: 25px;
+  margin-right: 5rpx;
+}

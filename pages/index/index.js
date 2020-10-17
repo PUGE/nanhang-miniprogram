@@ -6,7 +6,8 @@ Page({
   data: {
     checkList: [],
     openID: '',
-    showHisVal: false
+    showHisVal: false,
+    noloading: false
   },
   // 停止监控
   stop: function(event) {
@@ -54,7 +55,7 @@ Page({
         if (res.code) {
           console.log(res.code)
           const userCode = res.code
-          //发起网络请求
+          //获取用户id
           wx.request({
             url: 'https://going.run/weixin',
             data: {
@@ -62,14 +63,16 @@ Page({
               code: userCode
             },
             success: (res) => {
-              console.log(res.data)
+              // console.log(res.data)
               const data = JSON.parse(res.data)
-              console.log(data)
+              // console.log(data)
               this.setData({
-                openID: data['openID'],
-                checkList: data['value']
+                openID: data['openID']
               })
               app.globalData.openid = data['openID']
+              this.getData()
+              // 每分钟刷新数据
+              setInterval(this.getData, 60000)
             },
             fail: (res) => {
               console.log(res)
@@ -81,9 +84,36 @@ Page({
       }
     })
   },
+  getData: function () {
+    wx.request({
+      url: 'https://going.run/weixin',
+      data: {
+        type: 'check',
+        openid: app.globalData.openid,
+        showHisVal: this.data.showHisVal
+      },
+      success: (res) => {
+        // console.log(res.data)
+        const data = JSON.parse(res.data)
+        // console.log(data)
+        this.setData({
+          checkList: data['value'],
+          noloading: true
+        })
+      },
+      fail: (res) => {
+        console.log(res)
+      }
+    })
+  },
   showHis: function () {
     this.setData({
+      noloading: false,
       showHisVal: !this.data.showHisVal
     })
+    this.getData()
+  },
+  onShareAppMessage: function () {
+    
   }
 })

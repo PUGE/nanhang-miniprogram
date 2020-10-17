@@ -34,10 +34,24 @@ Page({
           arrCity: data.arrCity
         },
         success: (res) => {
-          this.setData({
-            flightList: res.data,
-            loading: false
-          })
+          console.log(res.data)
+          if (res.data.err == 0) {
+            this.setData({
+              flightList: res.data.data,
+              loading: false
+            })
+          } else {
+            
+            wx.redirectTo({
+              url: 'add'　　// 页面 B
+            })
+            wx.showToast({
+              title: res.data.message,
+              icon: 'none',
+              duration: 2000
+            })
+          }
+          
         },
         fail: (res) => {
           console.log(res)
@@ -109,4 +123,7 @@ Page({
       }
     })
   },
+  onShareAppMessage: function () {
+    
+  }
 })

@@ -1,36 +1,27 @@
 <!--index.wxml-->
 <!-- 加载动画 -->
 
-<view class="container" wx:if="{{openID}}">
+<view class="container" wx:if="{{noloading}}">
   <text class="title">我的监控</text>
   <view class="item-box" wx:if="{{checkList.length > 0}}">
     <view wx:for="{{checkList}}" wx:key="check">
-      <view class="active item" wx:if="{{item.finish == 0}}">
+      <view class="active item">
         <view>出发日期: {{item.flightDate}}</view>
         <view>出发机场: {{item.depCityName}}</view>
         <view>到达机场: {{item.arrCityName}}</view>
         <view>监控航班: {{item.flightNo == '*' ? '全部航班' : item.flightNo}}</view>
         <view class="bottom-bar">
-          <view class="state">
-            <view class="state-icon"></view>
+          <view class="state" wx:if="{{item.finish == 0}}">
+            <image class="search" src="../res/search.svg"></image>
             <text>已监控{{item.num}}次</text>
           </view>
-          <view class="button" bindtap="stop" id="{{item.id}}">
-            <image src="../res/stop.svg"></image>
-            <text>停止监控</text>
-          </view>
-        </view>
-      </view>
-      <view class="finish item" wx:elif="{{showHisVal}}">
-        <view>出发日期: {{item.flightDate}}</view>
-        <view>出发机场: {{item.depCityName}}</view>
-        <view>到达机场: {{item.arrCityName}}</view>
-        <view>监控航班: {{item.flightNo == '*' ? '全部航班' : item.flightNo}}</view>
-        <image class="end" src="../res/finish.svg"></image>
-        <view class="bottom-bar">
-          <view class="state">
+          <view wx:else class="state">
             <view class="state-icon"></view>
             <text>累计监控{{item.num}}次</text>
+          </view>
+          <view wx:if="{{item.finish == 0}}" class="button" bindtap="stop" id="{{item.id}}">
+            <image src="../res/stop.svg"></image>
+            <text>停止监控</text>
           </view>
         </view>
       </view>
@@ -38,7 +29,7 @@
   </view>
   <image wx:else class="no-plant" src="../res/np-plant.png"></image>
   <view class="add" bindtap="add">+添加新快乐飞监控</view>
-  <view class="add" style="background-color: darkorange;" wx:if="{{checkList.length > 0}}" bindtap="showHis">{{showHisVal ? '隐藏历史监控' : '显示历史监控'}}</view>
+  <view class="add" style="background-color: darkorange;" bindtap="showHis">{{showHisVal ? '隐藏历史监控' : '显示历史监控'}}</view>
 </view>
 <view class="loading" wx:else>
   <image src="../res/loading.svg"></image>

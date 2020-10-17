@@ -233,5 +233,8 @@ Page({
     this.setData({
       index2: e.detail.value
     })
+  },
+  onShareAppMessage: function () {
+    
   }
 })

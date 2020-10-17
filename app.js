@@ -13,5 +13,8 @@ App({
       "lauchOpts": options,
       "ignoreParams": [],
     })
+  },
+  onShareAppMessage: function () {
+    
   }
 })
