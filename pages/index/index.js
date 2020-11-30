@@ -7,7 +7,8 @@ Page({
     checkList: [],
     openID: '',
     showHisVal: false,
-    noloading: false
+    noloading: false,
+    loadingText: '正在登录...'
   },
   // 停止监控
   stop: function(event) {
@@ -20,6 +21,7 @@ Page({
             url: 'https://going.run/weixin',
             data: {
               type: 'finish',
+              openid: app.globalData.openid,
               id: event.currentTarget.id
             },
             success: (res) => {
@@ -43,6 +45,72 @@ Page({
     })
     
   },
+  startNight: function(event) {
+    wx.showModal({
+      title: '夜间提醒',
+      content: '确定要开启夜间提醒？',
+      success: (res) => {
+        if (res.confirm) {
+          wx.request({
+            url: 'https://going.run/weixin',
+            data: {
+              type: 'startNight',
+              openid: app.globalData.openid,
+              id: event.currentTarget.id
+            },
+            success: (res) => {
+              const data = JSON.parse(res.data)
+              console.log(data)
+              this.setData({
+                checkList: data
+              })
+              wx.showToast({
+                title: '夜间监控已开启',
+                icon: 'success',
+                duration: 2000
+              })
+            },
+            fail: (res) => {
+              console.log(res)
+            }
+          })
+        }
+      }
+    })
+  },
+  stopNight: function(event) {
+    wx.showModal({
+      title: '夜间提醒',
+      content: '确定要关闭夜间提醒？',
+      success: (res) => {
+        if (res.confirm) {
+          wx.request({
+            url: 'https://going.run/weixin',
+            data: {
+              type: 'stopNight',
+              openid: app.globalData.openid,
+              id: event.currentTarget.id
+            },
+            success: (res) => {
+              const data = JSON.parse(res.data)
+              console.log(data)
+              this.setData({
+                checkList: data
+              })
+              wx.showToast({
+                title: '夜间监控已关闭',
+                icon: 'success',
+                duration: 2000
+              })
+            },
+            fail: (res) => {
+              console.log(res)
+            }
+          })
+        }
+      }
+    })
+  },
   add: function (event) {
     wx.navigateTo({
       url: 'add'　
@@ -59,7 +127,7 @@ Page({
           wx.request({
             url: 'https://going.run/weixin',
             data: {
-              type: 'login',
+              type: 'getOpenID',
               code: userCode
             },
             success: (res) => {
@@ -67,7 +135,8 @@ Page({
               const data = JSON.parse(res.data)
               // console.log(data)
               this.setData({
-                openID: data['openID']
+                openID: data['openID'],
+                loadingText: '正在获取航班信息...'
               })
               app.globalData.openid = data['openID']
               this.getData()
@@ -88,7 +157,7 @@ Page({
     wx.request({
       url: 'https://going.run/weixin',
       data: {
-        type: 'check',
+        type: 'getUserData',
         openid: app.globalData.openid,
         showHisVal: this.data.showHisVal
       },

@@ -12,10 +12,10 @@
         <image class="line" src="../res/line.svg"></image>
         <view >{{item.arrTimeStr}}</view>
       </view> 
-      <view class="text-bar" wx:if="{{item.happyNum != -1}}">快乐飞剩余: {{item.happyNum}}</view>
-      <view class="text-bar" wx:else>此航班非快乐飞航班!</view>
+      <view class="text-bar" wx:if="{{item.happyNum != 0}}">快乐飞剩余: {{item.happyNum}}可通过南航APP购买！</view>
+      <view class="text-bar" wx:else>非快乐飞航班或暂时售罄，可监控!</view>
       <view class="button" wx:if="{{item.happyNum == 0}}" bindtap="jiankong" id="{{index}}">监控航班</view>
-      <image wx:elif="{{item.happyNum !== -1}}" class="have-tic" src="../res/haveTic.svg"></image>
+      <view class="button can-buy" wx:elif="{{item.happyNum !== -1}}" bindtap="jiankong" id="{{index}}">尚有余票</view>
     </view>
     <view class="add" bindtap="add" bindtap="jiankong" id="*">监控当日所有航班</view>
     <view class="info-text">提示:</view>

@@ -202,7 +202,23 @@ Page({
     ],
     flightList: []
   },
-
+  // 获取N天以后日期
+  fun_date: function(dayNum) {
+    var date1 = new Date()
+    var date2 = new Date(date1);
+    date2.setDate(date1.getDate() + dayNum);
+    var month = date2.getMonth() + 1
+    if (month < 10) month = '0' + month
+    let day = date2.getDate()
+    if (day < 10) day = '0' + day
+    var time2 = date2.getFullYear() + "-" + (month) + "-" + day;
+    return time2
+  },
+  onLoad: function (options) {
+    this.setData({
+      date: this.fun_date(10)
+    })
+  },
   // search停止监控
   search: function(event) {
     wx.navigateTo({

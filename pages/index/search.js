@@ -41,14 +41,14 @@ Page({
               loading: false
             })
           } else {
-            
-            wx.redirectTo({
-              url: 'add'　　// 页面 B
-            })
-            wx.showToast({
-              title: res.data.message,
-              icon: 'none',
-              duration: 2000
+            wx.showModal({
+              title: '查询失败',
+              content: res.data.message,
+              success (res) {
+                wx.navigateBack({
+                  url: 'add'　　// 页面 B
+                })
+              }
             })
           }
           
@@ -64,7 +64,7 @@ Page({
     var app = getApp()
     // 订阅消息
     wx.requestSubscribeMessage({
-      tmplIds: ['Fk0bFqqG8g7pYUh3FBWio6RRRjQGlBYuMPrz5I1uSjk', 'XOGLi_2DSbmJd4pp442pl4HwhdRpVbspo7ucEhHv0Eg'],
+      tmplIds: ['Fk0bFqqG8g7pYUh3FBWio6RRRjQGlBYuMPrz5I1uSjk', 'urcU2yTZ3qXAZDVvHbWx9xImDMyzYtpknSLfXlIRm58'],
       success: (res) => {
         let activeItem = {"flightNo": "*", "depTime": '0000'}
         if (event.currentTarget.id != '*') {
@@ -89,9 +89,6 @@ Page({
                 title: '添加成功',
                 icon: 'success',
                 duration: 2000
-              })
-              wx.redirectTo({
-                url: 'index'　　// 页面 A
               })
             }
           },

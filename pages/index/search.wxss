@@ -11,16 +11,16 @@
   margin-bottom: 20rpx;
   padding: 15rpx;
   position: relative;
-  box-shadow: 1px 1px 2px #ccc;
+  box-shadow: 1px 1px 5px #ccc;
   height: 200rpx;
 }
 .text-bar {
-  font-size: 24rpx;
+  font-size: 26rpx;
   line-height: 35rpx;
   color: sienna;
 }
 .info {
-  font-size: 12px;
+  font-size: 13px;
   color: #666;
 }
 .button {
@@ -50,7 +50,7 @@
   width: 500rpx;
   justify-content: space-between;
   font-size: 48rpx;
-  height: 135rpx;
+  height: 120rpx;
   font-weight: bold;
   color: slateblue;
 }
@@ -84,6 +84,7 @@
 .info-text {
   color: #999;
   font-size: 12px;
+  line-height: 20px;
 }
 
 .have-tic {
@@ -92,4 +93,10 @@
   right: 10rpx;
   top: 10rpx;
   height: 70rpx;
+}
+
+.can-buy {
+  background-color: #ccc;
+  user-select: none;
+  pointer-events: none;
 }
