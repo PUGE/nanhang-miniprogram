@@ -45,6 +45,39 @@ Page({
     })
     
   },
+  replay: function(event) {
+    wx.showModal({
+      title: '重启监控',
+      content: '确定要重启监控？',
+      success: (res) => {
+        if (res.confirm) {
+          wx.request({
+            url: 'https://going.run/weixin',
+            data: {
+              type: 'replay',
+              openid: app.globalData.openid,
+              id: event.currentTarget.id
+            },
+            success: (res) => {
+              const data = JSON.parse(res.data)
+              console.log(data)
+              this.setData({
+                checkList: data
+              })
+              wx.showToast({
+                title: '监控已重启',
+                icon: 'success',
+                duration: 2000
+              })
+            },
+            fail: (res) => {
+              console.log(res)
+            }
+          })
+        }
+      }
+    })
+  },
   startNight: function(event) {
     wx.showModal({
       title: '夜间提醒',

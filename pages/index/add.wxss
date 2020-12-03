@@ -25,3 +25,8 @@ picker {
   border-radius: 10rpx;
   line-height: 70rpx;
 }
+
+.made-by {
+  position: absolute;
+  bottom: 5px;
+}

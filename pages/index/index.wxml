@@ -19,18 +19,24 @@
           <view class="state-icon"></view>
           <text>累计监控{{item.num}}次</text>
         </view>
-        <view class="bottom-bar">
-          <view wx:if="{{!item.night}}" class="button" bindtap="startNight" id="{{item.id}}">
-            <image src="../res/alert.svg"></image>
-            <text>开启夜间监控</text>
-          </view>
+        <view wx:if="{{item.finish == 0}}" class="bottom-bar">
           <view wx:if="{{item.night}}" class="button" bindtap="stopNight" id="{{item.id}}">
             <image src="../res/alert.svg"></image>
             <text>关闭夜间监控</text>
           </view>
-          <view wx:if="{{item.finish == 0}}" class="button" bindtap="stop" id="{{item.id}}">
+          <view wx:else class="button" bindtap="startNight" id="{{item.id}}">
+            <image src="../res/alert.svg"></image>
+            <text>开启夜间监控</text>
+          </view>
+          <view class="button" bindtap="stop" id="{{item.id}}">
             <image src="../res/stop.svg"></image>
             <text>停止监控</text>
+          </view>
+        </view>
+        <view wx:else class="bottom-bar">
+          <view class="button" bindtap="replay" id="{{item.id}}">
+            <image src="../res/replay.svg"></image>
+            <text>重启监控</text>
           </view>
         </view>
       </view>
@@ -39,6 +45,8 @@
   <image wx:else class="no-plant" src="../res/np-plant.png"></image>
   <view class="add" bindtap="add">+添加新快乐飞监控</view>
   <view class="add" style="background-color: darkorange;" bindtap="showHis">{{showHisVal ? '隐藏历史监控' : '显示历史监控'}}</view>
+  <button class='contact-btn' open-type='contact'>联系客服</button>
+  <view class="info">秒级监控正在内测，联系客服免费获取内测资格！</view>
 </view>
 <view class="loading" wx:else>
   <image src="../res/loading.svg"></image>

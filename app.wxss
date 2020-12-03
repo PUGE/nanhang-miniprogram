@@ -12,3 +12,13 @@ page {
   bottom: 0;
   margin: auto;
 }
+.made-by {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  color: #ccc;
+  line-height: 18px;
+  margin: 5px 0;
+  margin-top: 10px;
+}

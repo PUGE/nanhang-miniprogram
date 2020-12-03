@@ -41,5 +41,8 @@
     </view>
     <view class="button" bindtap="search">搜索航班</view>
   </view>
-  
+  <view class="made-by">
+    <view class="made-by-item">Made by PUGE</view>
+    <view class="made-by-item">Email: mail@puge.org</view>
+  </view>
 </view>

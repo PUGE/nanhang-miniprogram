@@ -64,7 +64,7 @@ Page({
     var app = getApp()
     // 订阅消息
     wx.requestSubscribeMessage({
-      tmplIds: ['Fk0bFqqG8g7pYUh3FBWio6RRRjQGlBYuMPrz5I1uSjk', 'urcU2yTZ3qXAZDVvHbWx9xImDMyzYtpknSLfXlIRm58'],
+      tmplIds: ['Fk0bFqqG8g7pYUh3FBWio6RRRjQGlBYuMPrz5I1uSjk', 'urcU2yTZ3qXAZDVvHbWx9xImDMyzYtpknSLfXlIRm58', 'XOGLi_2DSbmJd4pp442pl4HwhdRpVbspo7ucEhHv0Eg'],
       success: (res) => {
         let activeItem = {"flightNo": "*", "depTime": '0000'}
         if (event.currentTarget.id != '*') {
@@ -89,6 +89,11 @@ Page({
                 title: '添加成功',
                 icon: 'success',
                 duration: 2000
+              })
+              let temp = this.data.flightList
+              temp[parseInt(event.currentTarget.id)].isAdd = true
+              this.setData({
+                flightList: temp
               })
             }
           },

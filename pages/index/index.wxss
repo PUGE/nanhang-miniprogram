@@ -123,3 +123,25 @@
 .tool-bar {
   display: flex;
 }
+button.contact-btn {
+  text-align: center;
+  width: 704rpx !important;
+  border-radius: 15rpx;
+  padding: 15rpx;
+  background-color: #2cad36;
+  color: white;
+  font-size: 16px;
+  line-height: 60rpx;
+  box-shadow: 1px 1px 2px #ccc;
+  margin: 20rpx auto;
+  display: block;
+  font-weight: normal;
+}
+.info {
+  font-size: 12px;
+  width: 710rpx;
+  margin: 0 auto;
+  color: #999;
+  text-align: center;
+  margin-bottom: 5px;
+}
