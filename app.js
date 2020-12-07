@@ -2,7 +2,8 @@
 var mta= require('./mta_analysis')
 App({
   globalData: {
-    openid: null
+    openid: null,
+    userInfo: {}
   },
   onLaunch: function (options) {
     console.log(mta)

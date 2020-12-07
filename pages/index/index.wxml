@@ -43,10 +43,9 @@
     </view>
   </view>
   <image wx:else class="no-plant" src="../res/np-plant.png"></image>
-  <view class="add" bindtap="add">+添加新快乐飞监控</view>
+  <navigator class="add" url="/pages/index/add">添加新快乐飞监控</navigator>
   <view class="add" style="background-color: darkorange;" bindtap="showHis">{{showHisVal ? '隐藏历史监控' : '显示历史监控'}}</view>
-  <button class='contact-btn' open-type='contact'>联系客服</button>
-  <view class="info">秒级监控正在内测，联系客服免费获取内测资格！</view>
+  <navigator class="add" style="background-color: firebrick;" url="/pages/index/setting">高级设置</navigator>
 </view>
 <view class="loading" wx:else>
   <image src="../res/loading.svg"></image>

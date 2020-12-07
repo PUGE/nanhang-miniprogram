@@ -1,0 +1,42 @@
+/* pages/index/setting.wxss */
+button.contact-btn {
+  text-align: center;
+  width: 704rpx !important;
+  border-radius: 15rpx;
+  padding: 15rpx;
+  background-color: #2cad36;
+  color: white;
+  font-size: 16px;
+  line-height: 60rpx;
+  box-shadow: 1px 1px 2px #ccc;
+  margin: 20rpx auto;
+  display: block;
+  font-weight: normal;
+}
+
+.lable {
+  width: 90%;
+  line-height: 40px;
+  margin: 0 auto;
+  display: block;
+  color: #666;
+}
+input, .text {
+  width: 90%;
+  margin: 0 auto;
+  line-height: 40px;
+  display: block;
+  height: 40px;
+}
+input {
+  border-bottom: 1px solid #ddd;
+}
+radio-group {
+  height: 40px;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 16px;
+}
+label {
+  margin-right: 5px;
+}

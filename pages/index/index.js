@@ -144,13 +144,7 @@ Page({
       }
     })
   },
-  add: function (event) {
-    wx.navigateTo({
-      url: 'add'　
-    })
-  },
   onLoad: function () {
-    var app = getApp()
     wx.login({
       success: (res) => {
         if (res.code) {
@@ -158,10 +152,11 @@ Page({
           const userCode = res.code
           //获取用户id
           wx.request({
-            url: 'https://going.run/weixin',
+            url: 'https://going.run/miniprogram',
             data: {
-              type: 'getOpenID',
-              code: userCode
+              route: 'getOpenID',
+              code: userCode,
+              appid: 'wxdcfdd904db03fc21'
             },
             success: (res) => {
               // console.log(res.data)
@@ -173,6 +168,7 @@ Page({
               })
               app.globalData.openid = data['openID']
               this.getData()
+              this.getUserInfo()
               // 每分钟刷新数据
               setInterval(this.getData, 60000)
             },
@@ -183,6 +179,23 @@ Page({
         } else {
           console.log('登录失败！' + res.errMsg)
         }
+      }
+    })
+  },
+  getUserInfo: function () {
+    wx.request({
+      url: 'https://going.run/miniprogram',
+      data: {
+        route: 'getUserData',
+        appid: 'wxdcfdd904db03fc21',
+        openid: app.globalData.openid,
+      },
+      success: (res) => {
+        const data = JSON.parse(res.data)
+        app.globalData.userInfo = data.value
+      },
+      fail: (res) => {
+        console.log(res)
       }
     })
   },

@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/index/add",
-    "pages/index/search"
+    "pages/index/search",
+    "pages/index/setting"
   ],
   "window": {
     "backgroundTextStyle": "light",

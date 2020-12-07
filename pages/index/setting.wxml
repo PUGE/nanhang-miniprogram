@@ -1,0 +1,25 @@
+<!--pages/index/setting.wxml-->
+<view class="container">
+  <view class="lable">您的用户级别：</view>
+  <view class="text">{{userInfo.isVIP ? '会员用户': '普通用户'}}</view>
+  <view class="lable">您的用户ID：</view>
+  <view class="text">{{openid}}</view>
+  <view class="lable">接收短信手机号：</view>
+  <input class="weui-input"  maxlength="11" type="number" value="{{userInfo.phone}}" bindinput="bindKeyInput" placeholder="输入您的手机号"/>
+  <view class="lable">短信通知设置：</view>
+  <view>
+    <radio-group>
+      <label class="radio"><radio value="start" checked="true"/>开启</label>
+      <label class="radio"><radio value="stop"/>关闭</label>
+    </radio-group>
+  </view>
+  <view class="lable">监控频率：</view>
+  <view>
+    <radio-group bindchange="radioChange">
+      <label class="radio"><radio value="60" checked="{{userInfo.rate == 60}}"/>一分钟监控一次</label>
+      <label class="radio"><radio value="5" checked="{{userInfo.rate == 5}}"/>5秒监控一次</label>
+    </radio-group>
+  </view>
+  <button class='contact-btn' style="background-color: #009fe9;" bindtap="saveConfig">保存设置</button>
+  <button class='contact-btn' open-type='contact'>联系客服</button>
+</view>
