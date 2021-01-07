@@ -23,7 +23,7 @@
   <view class="search" >
     <view class="section">
       <view class="section__title">出发日期:</view>
-      <picker mode="date" value="{{date}}" start="2020-09-10" end="2021-1-31" bindchange="bindDateChange">
+      <picker mode="date" value="{{date}}" start="2021-01-10" end="2021-7-31" bindchange="bindDateChange">
         <view class="picker">{{date}}</view>
       </picker>
     </view>

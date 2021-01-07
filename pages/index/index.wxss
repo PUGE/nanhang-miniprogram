@@ -71,8 +71,19 @@
   line-height: 60rpx;
   box-shadow: 1px 1px 2px #ccc;
   margin: 20rpx auto;
+  box-sizing: border-box;
 }
-
+.container button.contact-btn {
+  width: 90%;
+  background-color: lightgray;
+  font-weight: normal;
+  border-radius: 15rpx;
+  line-height: 60rpx;
+  margin-bottom: 10rpx;
+  box-shadow: 1px 1px 2px #ccc;
+  padding: 15rpx;
+  box-sizing: border-box;
+}
 .state {
   display: flex;
   justify-content: center;
