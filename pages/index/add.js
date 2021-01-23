@@ -1,6 +1,6 @@
 //logs.js
 const util = require('../../utils/util.js')
-
+const app = getApp()
 Page({
   data: {
     date: '2020-11-21',
@@ -221,6 +221,8 @@ Page({
   },
   // search停止监控
   search: function(event) {
+    console.log(app.globalData.userInfo)
+    app.globalData.userInfo.select = event.currentTarget.id
     wx.navigateTo({
       url: 'search',
       success: (res) => {
@@ -230,9 +232,17 @@ Page({
           depCity: this.data.plant[this.data.index][2],
           arrCity: this.data.plant[this.data.index2][2],
           depCityName: this.data.plant[this.data.index][0],
-          arrCityName: this.data.plant[this.data.index2][0]
+          arrCityName: this.data.plant[this.data.index2][0],
+          select: app.globalData.userInfo.select
         })
       }
+    })
+  },
+  exchange: function() {
+    const temp = this.data.index
+    this.setData({
+      index: this.data.index2,
+      index2: temp
     })
   },
   bindDateChange: function(e) {

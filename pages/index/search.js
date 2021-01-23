@@ -1,4 +1,5 @@
 // pages/index/search.js
+const app = getApp()
 Page({
 
   /**
@@ -13,6 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData.userInfo)
     this.setData({
       loading: true
     })
@@ -61,7 +63,6 @@ Page({
   },
    // 监控
   jiankong: function(event) {
-    var app = getApp()
     // 订阅消息
     wx.requestSubscribeMessage({
       tmplIds: ['Fk0bFqqG8g7pYUh3FBWio6RRRjQGlBYuMPrz5I1uSjk', 'urcU2yTZ3qXAZDVvHbWx9xImDMyzYtpknSLfXlIRm58', 'XOGLi_2DSbmJd4pp442pl4HwhdRpVbspo7ucEhHv0Eg'],
@@ -81,7 +82,11 @@ Page({
             arrCity: this.data.arrCity,
             depCityName: this.data.depCityName,
             arrCityName: this.data.arrCityName,
-            depTime: activeItem.depTime
+            depTime: activeItem.depTime,
+            vip: app.globalData.isVIP,
+            phone: app.globalData.phone,
+            rate: app.globalData.rate,
+            select: app.globalData.select,
           },
           success: (res) => {
             if (res.data.err === 0) {
