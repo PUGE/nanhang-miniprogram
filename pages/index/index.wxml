@@ -10,7 +10,7 @@
         <view>出发机场: {{item.depCityName}}</view>
         <view>到达机场: {{item.arrCityName}}</view>
         <view>监控航班: {{item.flightNo == '*' ? '全部航班' : item.flightNo}}</view>
-        <view wx:if="{{item.message}}">结束原因: {{item.message}}</view>
+        <view wx:if="{{item.finish != 0 && item.message}}">结束原因: {{item.message}}</view>
         <view class="state" wx:if="{{item.finish == 0}}">
           <image class="search" src="../res/search.svg"></image>
           <text>已监控{{item.num}}次</text>

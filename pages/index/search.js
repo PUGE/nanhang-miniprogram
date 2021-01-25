@@ -81,7 +81,9 @@ Page({
             arrCity: this.data.arrCity,
             depCityName: this.data.depCityName,
             arrCityName: this.data.arrCityName,
-            depTime: activeItem.depTime
+            depTime: activeItem.depTime,
+            vip: app.globalData.userInfo.isVIP ? 1 : 0,
+            phone: app.globalData.userInfo.phone
           },
           success: (res) => {
             if (res.data.err === 0) {
