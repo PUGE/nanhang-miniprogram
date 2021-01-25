@@ -23,7 +23,7 @@
   <view class="search" >
     <view class="section">
       <view class="section__title">出发日期:</view>
-      <picker mode="date" value="{{date}}" start="2020-09-10" end="2021-1-31" bindchange="bindDateChange">
+      <picker mode="date" value="{{date}}" start="2021-01-10" end="2021-7-31" bindchange="bindDateChange">
         <view class="picker">{{date}}</view>
       </picker>
     </view>
@@ -32,6 +32,7 @@
       <picker bindchange="bindPickerChange" value="{{index}}" range-key="0" range="{{plant}}">
         <view class="picker">{{plant[index][0]}}</view>
       </picker>
+      <image class="exchange" src="../res/exchange.svg" bindtap="exchange"></image>
     </view>
     <view class="section">
       <view class="section__title">到达机场</view>
@@ -39,7 +40,8 @@
         <view class="picker">{{plant[index2][0]}}</view>
       </picker>
     </view>
-    <view class="button" bindtap="search">搜索航班</view>
+    <view class="button" id="lvyou" bindtap="search">搜索“旅游套餐”航班</view>
+    <view class="button" id="changyou" bindtap="search">搜索“畅游套餐”航班</view>
   </view>
   <view class="made-by">
     <view class="made-by-item">Made by PUGE</view>

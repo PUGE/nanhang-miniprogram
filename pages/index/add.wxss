@@ -30,3 +30,15 @@ picker {
   position: absolute;
   bottom: 5px;
 }
+
+.exchange {
+  position: absolute;
+  width: 30px;
+  right: 35rpx;
+  top: 11rpx;
+  height: 30px;
+}
+
+.section {
+  position: relative;
+}

@@ -14,9 +14,9 @@
       </view> 
       <view class="text-bar" wx:if="{{item.happyNum != 0}}">快乐飞剩余: {{item.happyNum}}可通过南航APP购买！</view>
       <view class="text-bar" wx:else>非快乐飞航班或暂时售罄，可监控!</view>
-      <view class="button can-buy" wx:if="{{item.isAdd}}" bindtap="jiankong" id="{{index}}">已经添加</view>
+      <view class="button can-buy" wx:if="{{item.isAdd}}" id="{{index}}">已经添加</view>
       <view class="button" wx:elif="{{item.happyNum == 0}}" bindtap="jiankong" id="{{index}}">监控航班</view>
-      <view class="button can-buy" wx:elif="{{item.happyNum !== -1}}" bindtap="jiankong" id="{{index}}">尚有余票</view>
+      <view class="button can-buy" wx:elif="{{item.happyNum !== -1}}" id="{{index}}">尚有余票</view>
     </view>
     <view class="add" bindtap="add" bindtap="jiankong" id="*">监控当日所有航班</view>
     <view class="info-text">提示:</view>

@@ -62,7 +62,7 @@ Page({
       })
     } else {
       wx.showToast({
-        title: '高级设置请联系客服成为会员用户使用（暂不收费）!',
+        title: '马上上线',
         icon: 'none',
         duration: 2000
       })
