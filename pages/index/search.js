@@ -7,7 +7,8 @@ Page({
    */
   data: {
     loading: true,
-    flightList: []
+    flightList: [],
+    select: 'lvyou'
   },
 
   /**
@@ -25,15 +26,17 @@ Page({
         depCity: data.depCity,
         arrCity: data.arrCity,
         depCityName: data.depCityName,
-        arrCityName: data.arrCityName,
+        arrCityName: data.arrCityName
       })
+      this.data.select = data.select
       wx.request({
         url: 'https://going.run/weixin',
         data: {
           type: 'search',
           flightDate: data.flightDate,
           depCity: data.depCity,
-          arrCity: data.arrCity
+          arrCity: data.arrCity,
+          select: data.select
         },
         success: (res) => {
           console.log(res.data)
@@ -83,10 +86,10 @@ Page({
             depCityName: this.data.depCityName,
             arrCityName: this.data.arrCityName,
             depTime: activeItem.depTime,
-            vip: app.globalData.isVIP,
-            phone: app.globalData.phone,
-            rate: app.globalData.rate,
-            select: app.globalData.select,
+            vip: app.globalData.userInfo.isVIP,
+            phone: app.globalData.userInfo.phone,
+            rate: app.globalData.userInfo.rate,
+            select: this.data.select,
           },
           success: (res) => {
             if (res.data.err === 0) {
