@@ -221,7 +221,6 @@ Page({
   },
   // search停止监控
   search: function(event) {
-    console.log(app.globalData.userInfo)
     app.globalData.userInfo.select = event.currentTarget.id
     wx.navigateTo({
       url: 'search',
