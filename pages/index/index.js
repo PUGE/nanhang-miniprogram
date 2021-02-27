@@ -6,6 +6,7 @@ Page({
   data: {
     checkList: [],
     openID: '',
+    showGongGao: true,
     showHisVal: false,
     noloading: false,
     loadingText: '正在登录...'
@@ -193,6 +194,14 @@ Page({
       success: (res) => {
         const data = JSON.parse(res.data)
         app.globalData.userInfo = data.value
+        console.log(data.value)
+        if (data['message'] && data['message'] != '') {
+          wx.showModal({
+            title: '公告',
+            showCancel: false,
+            content: data['message']
+          })
+        } 
       },
       fail: (res) => {
         console.log(res)
@@ -208,6 +217,7 @@ Page({
         showHisVal: this.data.showHisVal
       },
       success: (res) => {
+        app.globalData.checkNum = 0
         // console.log(res.data)
         const data = JSON.parse(res.data)
         // console.log(data)
@@ -215,6 +225,12 @@ Page({
           checkList: data['value'],
           noloading: true
         })
+        console.log(data['value'])
+        data['value'].forEach(element => {
+          if (element['finish'] == 0) {
+            app.globalData.checkNum++
+          }
+        });
       },
       fail: (res) => {
         console.log(res)

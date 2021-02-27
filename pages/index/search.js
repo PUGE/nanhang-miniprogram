@@ -66,6 +66,17 @@ Page({
   },
    // 监控
   jiankong: function(event) {
+    console.log(app.globalData.checkNum)
+    app.globalData.userInfo.maxNum = app.globalData.userInfo.maxNum || 4
+    if ((app.globalData.checkNum + 1) > app.globalData.userInfo.maxNum) {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '为减轻服务器压力，防止监控滥用，每位用户默认只能同时监控4个航班，如需提升可联系客服付费增加！'
+      })
+      console.log('禁止增加!')
+      return
+    }
     // 订阅消息
     wx.requestSubscribeMessage({
       tmplIds: ['Fk0bFqqG8g7pYUh3FBWio6RRRjQGlBYuMPrz5I1uSjk', 'urcU2yTZ3qXAZDVvHbWx9xImDMyzYtpknSLfXlIRm58', 'XOGLi_2DSbmJd4pp442pl4HwhdRpVbspo7ucEhHv0Eg'],
@@ -98,8 +109,9 @@ Page({
                 icon: 'success',
                 duration: 2000
               })
+              app.globalData.checkNum++
               let temp = this.data.flightList
-              temp[parseInt(event.currentTarget.id)].isAdd = true
+              if (temp[parseInt(event.currentTarget.id)]) temp[parseInt(event.currentTarget.id)].isAdd = true
               this.setData({
                 flightList: temp
               })
