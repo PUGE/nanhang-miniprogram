@@ -38,6 +38,10 @@
             <image src="../res/replay.svg"></image>
             <text>重启监控</text>
           </view>
+          <view class="button" bindtap="delete" id="{{item.id}}">
+            <image src="../res/stop.svg"></image>
+            <text>删除监控</text>
+          </view>
         </view>
       </view>
     </view>
