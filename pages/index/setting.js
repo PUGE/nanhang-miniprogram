@@ -7,7 +7,8 @@ Page({
    */
   data: {
     openid: '',
-    userInfo: {}
+    userInfo: {},
+    cdk: ''
   },
 
   /**
@@ -22,6 +23,51 @@ Page({
   bindKeyInput: function (value) {
     console.log(value.detail.value)
     this.data.userInfo.phone = value.detail.value
+  },
+  cdkinput: function (value) {
+    this.data.cdk = value.detail.value
+  },
+  buy: function () {
+    wx.navigateTo({
+      url: 'plugin-private://wxcadc32c90a236e5e/pages/orderList/orderList',
+    })
+  },
+  sendcdk: function () {
+    console.log(this)
+    if (!this.data.cdk) {
+      wx.showToast({
+        title: 'CDK不能为空!',
+        icon: 'error',
+        duration: 2000
+      })
+      return
+    }
+    wx.request({
+      url: `http://cdk.hanshu.run/use/${app.globalData.openid}/${this.data.cdk}`,
+      data: {
+        route: 'sendPhoneMessage',
+        appid: 'wxdcfdd904db03fc21',
+        openid: app.globalData.openid
+      },
+      success: (res) => {
+        console.log(res)
+        if (res.data.err == 0) {
+          wx.showToast({
+            title: '使用成功，重新登录小程序后生效!',
+            icon: 'success',
+            duration: 2000
+          })
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'error',
+            duration: 2000
+          })
+        }
+        
+      },
+      fail: (res) => {console.log(res)}
+    })
   },
   radioChange: function (value) {
     console.log(value.detail.value)

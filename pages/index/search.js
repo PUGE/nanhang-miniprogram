@@ -40,6 +40,18 @@ Page({
         },
         success: (res) => {
           console.log(res.data)
+          if (!res.data) {
+            wx.showModal({
+              title: '查询失败',
+              content: '系统正在维护!',
+              success (res) {
+                wx.navigateBack({
+                  url: 'add'　　// 页面 B
+                })
+              }
+            })
+            return
+          }
           if (res.data.err == 0) {
             this.setData({
               flightList: res.data.data,
@@ -72,7 +84,7 @@ Page({
       wx.showModal({
         title: '提示',
         showCancel: false,
-        content: '为减轻服务器压力，防止监控滥用，每位用户默认只能同时监控4个航班，如需提升可联系客服付费增加！'
+        content: '为减轻服务器压力，防止监控滥用，每位用户默认只能同时监控4个航班，如需提升可点击首页高级设置购买！'
       })
       console.log('禁止增加!')
       return
