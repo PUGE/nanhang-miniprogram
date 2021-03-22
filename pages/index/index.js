@@ -144,7 +144,7 @@ Page({
       }
     })
   },
-  onLoad: function () {
+  onShow: function () {
     wx.login({
       success: (res) => {
         if (res.code) {

@@ -83,10 +83,10 @@ Page({
             depCityName: this.data.depCityName,
             arrCityName: this.data.arrCityName,
             depTime: activeItem.depTime,
-            vip: app.globalData.isVIP,
-            phone: app.globalData.phone,
-            rate: app.globalData.rate,
-            select: app.globalData.select,
+            vip: app.globalData.userInfo.isVIP ? 1 : 0,
+            phone: app.globalData.userInfo.phone,
+            rate: app.globalData.userInfo.rate,
+            select: app.globalData.userInfo.select,
           },
           success: (res) => {
             if (res.data.err === 0) {
