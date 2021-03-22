@@ -43,7 +43,7 @@ Page({
       return
     }
     wx.request({
-      url: `http://cdk.hanshu.run/use/${app.globalData.openid}/${this.data.cdk}`,
+      url: `https://cdk.hanshu.run/use/${app.globalData.openid}/${this.data.cdk}`,
       data: {
         route: 'sendPhoneMessage',
         appid: 'wxdcfdd904db03fc21',
