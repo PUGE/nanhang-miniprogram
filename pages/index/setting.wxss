@@ -1,5 +1,5 @@
 /* pages/index/setting.wxss */
-button.contact-btn {
+button.contact-btn, navigator.contact-btn {
   text-align: center;
   width: 704rpx !important;
   border-radius: 15rpx;
@@ -12,6 +12,7 @@ button.contact-btn {
   margin: 20rpx auto;
   display: block;
   font-weight: normal;
+  box-sizing: border-box;
 }
 
 .lable {
@@ -39,4 +40,20 @@ radio-group {
 }
 label {
   margin-right: 5px;
+}
+.mini {
+  display: flex;
+  width: 94%;
+  margin: 0 auto;
+}
+.mini input {
+  width: calc(100% - 90px);
+}
+
+.mini button[type="primary"] {
+  width: 70px;
+  font-size: 16px;
+  padding: 0;
+  line-height: 35px;
+  height: 36px;
 }

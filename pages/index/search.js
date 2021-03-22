@@ -7,7 +7,8 @@ Page({
    */
   data: {
     loading: true,
-    flightList: []
+    flightList: [],
+    select: 'lvyou'
   },
 
   /**
@@ -25,18 +26,32 @@ Page({
         depCity: data.depCity,
         arrCity: data.arrCity,
         depCityName: data.depCityName,
-        arrCityName: data.arrCityName,
+        arrCityName: data.arrCityName
       })
+      this.data.select = data.select
       wx.request({
         url: 'https://going.run/weixin',
         data: {
           type: 'search',
           flightDate: data.flightDate,
           depCity: data.depCity,
-          arrCity: data.arrCity
+          arrCity: data.arrCity,
+          select: data.select
         },
         success: (res) => {
           console.log(res.data)
+          if (!res.data) {
+            wx.showModal({
+              title: '查询失败',
+              content: '系统正在维护!',
+              success (res) {
+                wx.navigateBack({
+                  url: 'add'　　// 页面 B
+                })
+              }
+            })
+            return
+          }
           if (res.data.err == 0) {
             this.setData({
               flightList: res.data.data,
@@ -63,6 +78,17 @@ Page({
   },
    // 监控
   jiankong: function(event) {
+    console.log(app.globalData.checkNum)
+    app.globalData.userInfo.maxNum = app.globalData.userInfo.maxNum || 4
+    if ((app.globalData.checkNum + 1) > app.globalData.userInfo.maxNum) {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '为减轻服务器压力，防止监控滥用，每位用户默认只能同时监控4个航班，如需提升可点击首页高级设置购买！'
+      })
+      console.log('禁止增加!')
+      return
+    }
     // 订阅消息
     wx.requestSubscribeMessage({
       tmplIds: ['Fk0bFqqG8g7pYUh3FBWio6RRRjQGlBYuMPrz5I1uSjk', 'urcU2yTZ3qXAZDVvHbWx9xImDMyzYtpknSLfXlIRm58', 'XOGLi_2DSbmJd4pp442pl4HwhdRpVbspo7ucEhHv0Eg'],
@@ -95,8 +121,9 @@ Page({
                 icon: 'success',
                 duration: 2000
               })
+              app.globalData.checkNum++
               let temp = this.data.flightList
-              temp[parseInt(event.currentTarget.id)].isAdd = true
+              if (temp[parseInt(event.currentTarget.id)]) temp[parseInt(event.currentTarget.id)].isAdd = true
               this.setData({
                 flightList: temp
               })

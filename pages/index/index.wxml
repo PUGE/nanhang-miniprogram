@@ -38,6 +38,10 @@
             <image src="../res/replay.svg"></image>
             <text>重启监控</text>
           </view>
+          <view class="button" bindtap="delete" id="{{item.id}}">
+            <image src="../res/stop.svg"></image>
+            <text>删除监控</text>
+          </view>
         </view>
       </view>
     </view>
@@ -45,8 +49,8 @@
   <image wx:else class="no-plant" src="../res/np-plant.png"></image>
   <navigator class="add" url="/pages/index/add">添加新快乐飞监控</navigator>
   <view class="add" style="background-color: darkorange;" bindtap="showHis">{{showHisVal ? '隐藏历史监控' : '显示历史监控'}}</view>
-  <button class='contact-btn' open-type='contact'>联系客服</button>
-  <!-- <navigator class="add" style="background-color: firebrick;" url="/pages/index/setting">高级设置</navigator> -->
+  <!-- <button class='contact-btn' open-type='contact'>联系客服</button> -->
+  <navigator class="add" style="background-color: firebrick;" url="/pages/index/setting">高级设置</navigator>
 </view>
 <view class="loading" wx:else>
   <image src="../res/loading.svg"></image>
