@@ -27,7 +27,7 @@
       <label class="radio"><radio value="5" checked="{{userInfo.rate == 5}}"/>5秒监控一次</label>
     </radio-group>
   </view> -->
-  <navigator class='contact-btn' target="miniProgram" open-type="navigate" app-id="wxcadc32c90a236e5e" path="pages/index/index" extra-data="" version="release" style="background-color: brown;">购买会员/最大上限</navigator>
+  <navigator class='contact-btn' target="miniProgram" open-type="navigate" app-id="wxcadc32c90a236e5e" path="pages/index/index" extra-data="" version="release" style="background-color: brown;">成为会员/提升上限</navigator>
   <button class='contact-btn' style="background-color: #009fe9;" bindtap="saveConfig">保存设置</button>
   <button class='contact-btn' open-type='contact'>联系客服</button>
 </view>

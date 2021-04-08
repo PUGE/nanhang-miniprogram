@@ -84,7 +84,7 @@ Page({
       wx.showModal({
         title: '提示',
         showCancel: false,
-        content: '为减轻服务器压力，防止监控滥用，每位用户默认只能同时监控4个航班，如需提升可点击首页高级设置购买！'
+        content: '超出当前用户最大同时监控数量，首页高级设置中可以查看或升级会员及最大监控数量！'
       })
       console.log('禁止增加!')
       return

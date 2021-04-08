@@ -20,14 +20,14 @@
           <text>累计监控{{item.num}}次</text>
         </view>
         <view wx:if="{{item.finish == 0}}" class="bottom-bar">
-          <view wx:if="{{item.night}}" class="button" bindtap="stopNight" id="{{item.id}}">
+          <!-- <view wx:if="{{item.night}}" class="button" bindtap="stopNight" id="{{item.id}}">
             <image src="../res/alert.svg"></image>
             <text>关闭夜间监控</text>
           </view>
           <view wx:else class="button" bindtap="startNight" id="{{item.id}}">
             <image src="../res/alert.svg"></image>
             <text>开启夜间监控</text>
-          </view>
+          </view> -->
           <view class="button" bindtap="stop" id="{{item.id}}">
             <image src="../res/stop.svg"></image>
             <text>停止监控</text>
